@@ -1,4 +1,4 @@
-#zadanie1
+#1
 user_input = input("Введите строку с пробелами: ")
 user_input = user_input.lower()
 char_list = list(user_input)
@@ -6,14 +6,14 @@ char_list = list(user_input)
 print("Созданный список:")
 print(char_list)
 
-#zadanie2
+#2
 
 user_input = input("Введите строку с пробелами: ")
 user_input = user_input.lower()
 
 char_count = {}
 for char in user_input:
-    if char != ' ':  # Пропускаем пробелы
+    if char != ' ': 
         if char in char_count:
             char_count[char] += 1
         else:
@@ -24,7 +24,7 @@ result = list(char_count.items())
 print("Результат:")
 print(result)
 
-#zadanie3
+#3
 
 user_input = input("Enter a string with whitespaces: ")
 
@@ -70,7 +70,7 @@ print("list_vow =", list_vow)
 print("list_cons =", list_cons)
 print("list_sym =", list_sym)
 
-#zadanie4
+#4
 
 list_A = input()
 
@@ -91,7 +91,7 @@ print("q2 =", q2)
 print("q3 =", q3)
 print("q4 =", q4)
 
-#zadanie5
+#5
 
 name = input("Имя студента: ")
 assignments = input("Баллы за задания: ").split(',')
@@ -106,34 +106,19 @@ student = {'имя': name, 'назначение': assignments, 'тест': test
 
 print("student =", student)
 
-#zadanie6
+#6
 student = {'имя': 'Адам', 'назначение': [82, 56, 44, 30], 'тест': [78, 77], 'лаборатория': [78.2, 77.2]}
 
 if len(student.get('назначение', [])) == 4 and len(student.get('тест', [])) == 2 and len(student.get('лаборатория', [])) == 2:
-    submission_check = {student['имя']: 6}  # 4 задания + 2 теста
+    submission_check = {student['имя']: 6}
 else:
     submission_check = {student['имя']: 0}
 
 
 print(submission_check)
+нн
 
-#zadanie6
-
-student = {'name': 'Adam', 'assignment': [82, 56, 44, 30], 'test': [78, 77], 'lab': [78.2, 77.2]}
-submission_rate = {'Adam': 6}
-
-if submission_rate.get(student['name'], 0) >= 4:
-    assignment_avg = sum(student['assignment']) / len(student['assignment'])
-    lab_avg = sum(student['lab']) / len(student['lab'])
-    test_avg = sum(student['test']) / len(student['test'])
-
-    student['final_grade'] = 0.3 * assignment_avg + 0.5 * lab_avg + 0.2 * test_avg
-else:
- student['final_grade'] = 0
-
-print(student)
-
-#zadanie7
+#7
 student = {'name': 'Adam', 'assignment': [82, 56, 44, 30], 'test': [78, 77], 'lab': [78.2, 77.2]}
 submission_rate = {'Adam': 6}
 
@@ -149,7 +134,7 @@ else:
 
 print(student)
 
-#zadanie8
+#8
 student1 = {'name': 'Adam', 'assignment': [82, 56, 44, 30], 'test': [78, 77], 'lab': [78.2, 77.2], 'final_grade': 70.25}
 student2 = {'name': 'Kevin', 'assignment': [82, 30], 'test': [], 'lab': [78.2], 'final_grade': 0}
 
@@ -158,7 +143,7 @@ students = {student1['name']: {key: value for key, value in student1.items() if 
 
 print(students)
 
-#zadanie9
+#9
 transactions = [(1001, 2), (1001, 1), (1003, 2), (1005, 2), (1001, 3), (1007, 1), (1007, 2), (1100, 2), (1003, 2), (1001, 1)]
 
 stats = {}
