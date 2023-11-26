@@ -71,21 +71,29 @@ print("list_cons =", list_cons)
 print("list_sym =", list_sym)
 
 #4
+def divide_into_quartiles(list_A):
+    list_A.sort()
+    n = len(list_A)
+    quartile_size = n // 4
+    remainder = n % 4
 
-list_A = input()
+    q1 = list_A[:quartile_size] + [0] * (4 - remainder) 
+    q2 = list_A[quartile_size:2 * quartile_size]
+    q3 = list_A[2 * quartile_size:3 * quartile_size]
+    q4 = list_A[3 * quartile_size:]
 
-sorted_list_A = sorted(list_A)
+    return q1, q2, q3, q4
 
-length = len(sorted_list_A)
-q1_index = length // 4
-q2_index = q1_index * 2
-q3_index = q1_index * 3
+sample_input1 = [1, 5, 8, 7, 9, 6, 7, 5, 8, 3, 9, 10, 2, 1, 3, 4]
+sample_input2 = [1, 5, 8, 7, 9, 6, 7, 5, 8, 3, 9, 10, 2, 1, 3, 4, 8]
 
-q1 = sorted_list_A[:q1_index]
-q2 = sorted_list_A[q1_index:q2_index]
-q3 = sorted_list_A[q2_index:q3_index]
-q4 = sorted_list_A[q3_index:]
+q1, q2, q3, q4 = divide_into_quartiles(sample_input1)
+print("q1 =", q1)
+print("q2 =", q2)
+print("q3 =", q3)
+print("q4 =", q4)
 
+q1, q2, q3, q4 = divide_into_quartiles(sample_input2)
 print("q1 =", q1)
 print("q2 =", q2)
 print("q3 =", q3)
@@ -116,7 +124,6 @@ else:
 
 
 print(submission_check)
-нн
 
 #7
 student = {'name': 'Adam', 'assignment': [82, 56, 44, 30], 'test': [78, 77], 'lab': [78.2, 77.2]}
@@ -142,22 +149,3 @@ students = {student1['name']: {key: value for key, value in student1.items() if 
             student2['name']: {key: value for key, value in student2.items() if key != 'name'}}
 
 print(students)
-
-#9
-transactions = [(1001, 2), (1001, 1), (1003, 2), (1005, 2), (1001, 3), (1007, 1), (1007, 2), (1100, 2), (1003, 2), (1001, 1)]
-
-stats = {}
-
-for user_id, transaction_type in transactions:
-    if user_id not in stats:
-        stats[user_id] = {1: 0, 2: 0, 3: 0, 'mft': None, 'lft': None}
-
-    stats[user_id][transaction_type] += 1
-
-for user_id, user_stats in stats.items():
-    most_frequent = max(user_stats, key=lambda key: user_stats[key] if isinstance(key, int) else 0)
-    least_frequent = min(user_stats, key=lambda key: user_stats[key] if isinstance(key, int) else 0)
-    user_stats['mft'] = most_frequent
-    user_stats['lft'] = least_frequent
-
-print("stats =", stats)
